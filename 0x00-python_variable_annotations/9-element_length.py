@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""Annonating the following
-
+"""Annotate the following code
 
 >>>def element_length(lst):
->>>  return [(i, len(i)) for i in lst]
+>>>   return [(i, len(i)) for i in lst]
 """
-from typing import List, Tuple
+from typing import Iterable, List, Sequence, Tuple
 
 
-def element_length(lst: List[str]) -> List[Tuple[str, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
-    Calculate the length of each element in the input list.
+    Return element length
     """
     return [(i, len(i)) for i in lst]
