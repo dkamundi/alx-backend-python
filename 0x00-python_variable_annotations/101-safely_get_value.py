@@ -8,14 +8,15 @@ def safe_first_element(lst):
         return None
 """
 
-from typing import Dict, TypeVar, Optional
+from typing import TypeVar, Dict, Any, Union 
 
-V = TypeVar('V')
+K = TypeVar('K')
 
 
-def safely_get_value(dct: Dict[str, V], key: str, default: Optional[V] = None) -> V:
+def safely_get_value(dct: Dict[K, Any], key: K, default: Union[Any, None] = None) -> Union[Any, None]:
     """Safely retrieve a value from a dictionary with an optional default."""
     if key in dct:
         return dct[key]
     else:
         return default
+
