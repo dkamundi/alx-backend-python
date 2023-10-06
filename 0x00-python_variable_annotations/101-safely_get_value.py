@@ -1,19 +1,10 @@
 #!/usr/bin/env python3
-"""correct duck-typed annotations of
 
-def safe_first_element(lst):
-    if lst:
-        return lst[0]
-    else:
-        return None
-"""
+from typing import TypeVar, Mapping, Any, Union
 
-from typing import TypeVar, Dict, Any, Union 
+T = TypeVar('T')
 
-K = TypeVar('K')
-
-
-def safely_get_value(dct: Dict[K, Any], key: K, default: Union[Any, None] = None) -> Union[Any, None]:
+def safely_get_value(dct: Mapping, key: Any, default: Union[T, None] = None) -> Union[Any, T]:
     """Safely retrieve a value from a dictionary with an optional default."""
     if key in dct:
         return dct[key]
